@@ -14,13 +14,15 @@ $(window).resize( function () {
 function control_size() {
     //h 126
     //w 150
-    if ($("body").width() < 1280) {
+    console.log($("body").width());
+    if ($("body").width() <= 1280) {
+       /***MAIN PAGE***/
         /*** HEADER ***/
         $(".header_menu").css({'font-size': $("body").width() * 0.0232});
         $(".header_link_logo_site_name").css({'font-size': $("body").width() * 0.0412});
         $(".header_link_logo_slogan").css({'font-size': $("body").width() * 0.016});
         $(".header").height($(".header").width()*0.1705);
-        $(".header_link_logo_img").css({'width': $(".header").height()*0.9, 'height': $(".header").height()*0.8});
+        //$(".header_link_logo_img").css({'width': $(".header").height()*0.9, 'height': $(".header").height()*0.8});
         $(".header_no_link_phone").css({'background-size': "16% "+$(".header_no_link_phone").width()*0.2+"px"});
         $(".header_link_auth").css({'background-size': "22% "+$(".header_link_auth").width()*0.3+"px"});
         $(".header_link_cart").css({'background-size': "22% "+$(".header_link_cart").width()*0.3+"px"});
@@ -36,10 +38,12 @@ function control_size() {
         $(".box_review").css({'font-size': $(".box_review").width()*0.115});
 
         setEqualHeight($(".bestseller_title"));
-        console.log("fghdf");
+       /*** END MAIN PAGE***/
     }
     else {
-        $(".header_link_logo_site_name").css({'font-size': 60});
+        $("body").css({"padding-left": (($("body").width()-1280)/2)});
+        $("body").width(1280);
+        control_size();
     }
 }
 

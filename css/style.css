@@ -3,6 +3,7 @@ body {
     margin: 0; /* Отступы на странице */
     min-width: 800px;
     position: relative;
+    width: 100%;
 }
 h2 {
     margin-top: 0; /* Убираем отступ сверху */
@@ -18,7 +19,7 @@ h2 {
     src: url(../fonts/britanic.TTF); /* Путь к файлу со шрифтом */
 }
 .header { /* Верхний блок */
-    height: auto;
+    height: 218;
     width: 100%;
     position: relative;
 }
@@ -37,15 +38,17 @@ h2 {
     width: 94%;
     border: 2px outset #6e9570;
     font-family: UniSansHeavyCAPS,serif;
-    font-size: 25px;
+    font-size: 30px;
     text-align: left;
     min-width: 720px;
 }
 
 .header_menu_link {
     vertical-align: middle;
+    padding-top: 1.8%;
     margin-right: 4%;
     color: #FFF !important;
+    position: relative;
 }
 
 .header_menu_link:first-child {
@@ -175,6 +178,7 @@ h2 {
     -webkit-transform: matrix( 0.68182776313059,0,0,0.68182776313059,0,0);
     -ms-transform: matrix( 0.68182776313059,0,0,0.68182776313059,0,0);
     z-index: 7;
+    font-size: 20px;
 }
 
 .header_link_logo_site_name {
@@ -187,6 +191,7 @@ h2 {
     -webkit-transform: matrix( 0.68182776313059,0,0,0.68182776313059,0,0);
     -ms-transform: matrix( 0.68182776313059,0,0,0.68182776313059,0,0);
     font-style: normal;
+    font-size: 53px;
 }
 /* End */
 
