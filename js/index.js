@@ -9,7 +9,7 @@ $(document).ready(function() {
 $(window).resize( function () {
     control_size();
     }
-)
+);
 
 function control_size() {
     //h 126
@@ -37,7 +37,11 @@ function control_size() {
         $(".box_redial").css({'font-size': $(".box_redial").width()*0.105});
         $(".box_review").css({'font-size': $(".box_review").width()*0.115});
 
-        setEqualHeight($(".bestseller_title"));
+        if (window.location.pathname.indexOf("goods.html") + 1) {
+            $(".goods_slider").height($(".carousel_container").height());
+            $(".container").height($(".goods_slider").height());
+        }
+        setEqualHeight($(".good_title"));
        /*** END MAIN PAGE***/
     }
     else {
