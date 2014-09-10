@@ -31,18 +31,22 @@ function control_size() {
         $(".header_link_cart").css({'font-size': $(".header_link_cart").width()*0.13});
         /*** <--END HEADER--> ***/
 
+        /*** BODY ***/
         $(".container").height($(".carousel_container").height()*1.02);
         $(".box_container").height($(".carousel_container").height());
         $(".box_delivery").css({'font-size': $(".box_delivery").width()*0.18});
         $(".box_redial").css({'font-size': $(".box_redial").width()*0.105});
         $(".box_review").css({'font-size': $(".box_review").width()*0.115});
+        /*** <--END BODY--> ***/
+       /*** END MAIN PAGE***/
 
+       /***GOODS PAGE***/
         if (window.location.pathname.indexOf("goods.html") + 1) {
             $(".goods_slider").height($(".carousel_container").height());
             $(".container").height($(".goods_slider").height());
         }
         setEqualHeight($(".good_title"));
-       /*** END MAIN PAGE***/
+       /***END GOODS PAGE***/
     }
     else {
         $("body").css({"padding-left": (($("body").width()-1280)/2)});
