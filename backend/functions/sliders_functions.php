@@ -1,0 +1,1 @@
+<?function get_sliders_data(){	$query = "SELECT id FROM sliders";	$ids = get_norm_mysql_rows($query);		for ($i = 0; $i < count($ids); $i++);		$sliders[$i] = get_slider_data($ids[$i]);			return $sliders;}function get_slider_data($id){	$query = "SELECT * FROM sliders WHERE id = '$id'";	$query = mysql_query($query);	return mysql_fetch_assoc($query);}?>
