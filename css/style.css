@@ -1026,18 +1026,23 @@ table.card_table tbody tr {
 
 table.card_table tbody tr td {
     border: 00000001px solid black;
-    height: 100px;
+    font-size: 20px;
 }
 
 table.card_table tbody tr td img {
-    height: 150px;
+    height: 130px;
 }
+
 table.card_table tbody tr td textarea {
     width: 90px;
     height: 1.5em;
-    font-size: 25px;
 }
 
 textarea {
     resize: none;
+    vertical-align: middle;
+}
+
+td.name {
+    text-decoration: underline;
 }
