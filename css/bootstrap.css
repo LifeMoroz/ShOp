@@ -294,7 +294,7 @@ hr {
 }
 .panel_heading_img {
     display: inline-block;
-    vertical-align: middle;
+    vertical-align: top;
 }
 .panel-heading > .dropdown .dropdown-toggle {
     color: inherit;
