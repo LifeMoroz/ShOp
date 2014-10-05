@@ -1,11 +1,12 @@
+<?
+include_once('include/config.php');
+include_once('include/db_functions.php');
+include_once('backup/functions/all_functions.php');
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
-    <?
-    include_once('include/config.php');
-    include_once('include/db_functions.php');
-    include_once('functions/all_functions.php');
-    ?>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <title><?echo SITE_NAME ?></title>
     <LINK REL=stylesheet TYPE="text/css" HREF="css/style.css"/>
@@ -62,22 +63,24 @@
                     <? } ?>
                 </ol>
                 <!-- Wrapper for slides -->
-                <div class="carousel-inner">
+                <div class="carousel-inner" style="height: 510px;">
                     <? $first_slide = array_shift($slides)?>
                     <div class="item active">
-                        <img src="<?echo  $first_slide['img'] ?>" alt="<?echo  $first_slide['alt'] ?>">
+                        <img src="<?echo  $first_slide['img'] ?>" alt="<?echo  $first_slide['alt'] ?>" style="height: 100%;">
 
                         <div class="carousel-caption">
                         </div>
                     </div>
-                    <? foreach ($slides as $slide) { ?>
-                    <div class="item active">
-                        <img src="<?echo  $slide['img'] ?>" alt="<?echo  $slide['alt'] ?>">
+                    
+					<? foreach ($slides as $slide) { ?>
+                    <div class="item">
+                        <img src="<?=$slider['img']?>" alt="х" style="height: 100%;">
 
                         <div class="carousel-caption">
                         </div>
                     </div>
                     <? } ?>
+					
                 </div>
 
                 <!-- Controls -->
