@@ -175,7 +175,7 @@
     <div class="modal-dialog">
         <div class="modal-content modal-delivery">
             <div class="modal-header modal-delivery">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span>
                         class="sr-only">Close</span></button>
                 <h4 class="modal-title modal-delivery_title">ДОСТАВКА</h4>
             </div>
@@ -196,7 +196,7 @@
     <div class="modal-dialog">
         <div class="modal-content modal-recall">
             <div class="modal-header modal-delivery">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span>
                         class="sr-only">Close</span></button>
                 <h4 class="modal-title modal-recall_title">ПЕРЕЗВОНИТЕ МНЕ</h4>
             </div>
@@ -224,7 +224,7 @@
     <div class="modal-dialog">
         <div class="modal-content modal-recall">
             <div class="modal-header modal-delivery">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span>
                         class="sr-only">Close</span></button>
                 <h4 class="modal-title modal-recall_title">ОСТАВЬТЕ СООБЩЕНИЕ</h4>
             </div>
