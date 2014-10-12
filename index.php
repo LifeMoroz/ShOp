@@ -1,12 +1,11 @@
-<?
-include_once('include/config.php');
-include_once('include/db_functions.php');
-include_once('backup/functions/all_functions.php');
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
+    <?
+    include_once('include/config.php');
+    include_once('include/db_functions.php');
+    include_once('functions/all_functions.php');
+    ?>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <title><?echo SITE_NAME ?></title>
     <LINK REL=stylesheet TYPE="text/css" HREF="css/style.css"/>
@@ -144,7 +143,6 @@ include_once('backup/functions/all_functions.php');
         <? $articles = get_popular_articles();
         if ($articles) {?>
     <h1 class="line">ОБСУЖДАЕМОЕ</h1>
-    </div>
     <div class="post_preview_container">
         <? foreach ($articles as $article) { ?>
         <div class="post_preview" style="width: 1150px">
