@@ -18,6 +18,13 @@ function add_new_about_us_message($author_name, $author_data, $text)
 function add_new_fbm($author_name, $author_data, $text, $type)
 {// добавить отправку писем админам?
 	$now = get_current_time_int();
+	
+	$text = htmlspecialchars($text, ENT_QUOTES);
+    $text = str_replace('  ', '&nbsp; ', $text);
+    $text = str_replace('  ', '&nbsp; ', $text);
+    $text = nl2br($text);
+    $text = addslashes($text);
+	
 	$query = "INSERT INTO feedback_messages SET 
 		author_name = '$author_name', 
 		author_data = '$author_data', 

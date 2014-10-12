@@ -4,7 +4,7 @@ if (!defined('FROM_INDEX')) go_to_error404_page();
 
 if (isset($_GET['id']) and true /*это число*/)
 {
-	$mode = 'by_id'; 
+	$mode = 'by_id';
 	$id = $_GET['id'];  // article id
 }
 else if (isset($_GET['writer_id']) and true /*это число*/)

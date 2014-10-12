@@ -1,56 +1,75 @@
 <?
-if (!defined('FROM_INDEX')) go_to_error404_page();
+include_once('../include/config.php');
+include_once('include/admin_config.php');
+
+include_once('../functions/work_functions.php');
+
+include_once('functions/work_admin_functions.php');
+include_once('functions/admin_user_functions.php');
 
 
-if ($_POST['admin-login-button'])
-{
-	$auth_message = log_in_admin($_POST['email'], $_POST['password']);
-}
-else if ($_POST['admin-restore-button'])
-{
-	$restore_message = log_in_admin($_POST['email'], $_POST['password']);
-}
+if (is_admin_logged_in()) header('location: index.php');
 
 
-if (!is_admin_logged_in())
-{
-	if ($auth_message)
-		$auth_message = '<h4 style="color: red;">'.$auth_message.'</h4>';
-	else $auth_message = '<h3>Вход в администрационную панель</h3>';
+?>
+<!DOCTYPE html PUBLIC  "-//W3C//DTD XHTML 1.0 Strict//EN" "www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<link type="text/css" rel="stylesheet" href="style/style.css"/>
 
-	if ($restore_message)
-		$restore_message = '<h4 style="color: red;">'.$restore_message.'</h4>';
-	else $restore_message = '<h3>Забыли пароль?</h3>';
-	
-	
+	<script type="text/javascript" src="./include/js/jquery-2.1.1.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="include/bootstrap/css/bootstrap.css"/>
+	<script type="text/javascript" src="include/bootstrap/js/bootstrap.js"></script>
+
+	<title>Вход в панель администратора</title>
+</head>
+
+<body>
+	<?php
+	if ($_POST['admin-login-button'])
+	{
+		log_in_admin($_POST['email'], $_POST['password']);
+		
+		if (is_admin_logged_in())
+		{ 
+			?> <script> document.location.href="index.php" </script> <?
+			unset($_POST);
+		}
+	}
+	else if ($_POST['admin-restore-button'])
+	{
+		restore_admin($_POST['email']);
+	}
 	?>
+	
 	<table width="100%" height="100%">
 	<tr align="center"><td>
+		<br><br><br>
 		
-		<?=$auth_message?>
+		<h3>Вход в панель администратора</h3>
 		<form method="post" action="">
 			E-mail: <br>
-			<input type="text" name="email" value="<?=$_POST['email']?>" maxlength="25" style="position:relative; top: 6px; width: 175px;"/>
+			<input type="text" name="email" value="<?=$_POST['email']?>" maxlength="25" id="auth_input">
 			<br><br>
 			Пароль: <br>
-			<input type="password" name="password" maxlength="25" style="position:relative; top: 6px; width: 175px;"/>
+			<input type="password" name="password" maxlength="25" id="auth_input">
 			<br><br>
-			<input type="submit" value="Войти" name="admin-login-button" style=" width: 175px;">
+			<input type="submit" value="Войти" name="admin-login-button" id="auth_button">
 		</form>
 		
 		<br><br><br>
 		
-		<?=$restore_message?>
+		<h3>Забыли пароль?</h3>
 		<form method="post" action="">
 			E-mail: <br>
-			<input type="text" name="login" maxlength="25" style="position:relative; top: 6px; width: 175px;"/></p>
-			<input type="submit" value="Восстановить" name="admin-restore-button" style=" width: 175px;">
+			<input type="text" name="login" maxlength="25" id="auth_input">
+			<br><br>
+			<input type="submit" value="Восстановить" name="admin-restore-button" id="auth_button">
 		</form>
 	</td></tr>
 	</table>
 	
-	<br><br><br><br>
-	<?
-}
-else unset($_POST);
-?>
+	<br><br><br><br><br>
+</body>
+</html>

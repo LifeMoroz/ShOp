@@ -20,8 +20,6 @@ else if ($_POST['admin-reg-button'])
 	else $rights = 0;
 	
 	register_admin($_POST['email'], $_POST['name'], $rights);
-	
-	if (!$add_new_admin_message) unset($_POST);
 }
 
 
@@ -36,8 +34,6 @@ if (count($administrators) > 1)
 	{
 		$id = $administrators[$i]['id'];
 		
-		if ($id == $_SESSION['admin']['id']) continue;
-		
 		$email = $administrators[$i]['email'];
 		$name = $administrators[$i]['name'];
 		$rights = $administrators[$i]['rights'];
@@ -46,7 +42,7 @@ if (count($administrators) > 1)
 		else $is_main_admin = '';
 		
 		
-		if ($_SESSION['admin']['rights'])
+		if ($_SESSION['admin']['rights'] and $id != $_SESSION['admin']['id'])
 		{
 			if ($rights)
 			{
@@ -65,9 +61,9 @@ if (count($administrators) > 1)
 					<input type="submit" value="'.$b_v.'" name="'.$b_n.'" id="button" class="mini_button">
                 </form>
             ';
+			
+			$deleting_form = get_delete_smth_form($id, 'delete-admin-button');
 		}
-
-        $deleting_form = get_delete_smth_form($id, 'delete-admin-button');
 
 		echo '
             <table width="90%">
@@ -86,6 +82,7 @@ if (count($administrators) > 1)
                 </td>
             </tr>
             </table>
+			<br>
 		';
 
         echo $deleting_form['modal'];
@@ -96,13 +93,9 @@ if (count($administrators) > 1)
 
 if ($_SESSION['admin']['rights'])
 {
-	if ($add_new_admin_message) 
-		$add_new_admin_message = '<h4 style="color: red;">'.$add_new_admin_message.'</h4>';
-	else $add_new_admin_message = '<h3>Добавление нового администратора:</h3>';
-
 	?>
 	<form method="post" action="">
-		<?=$add_new_admin_message?>
+		<h3>Добавление нового администратора:</h3>
 		E-mail:<br>
 		<input type="text" name="email" value="<?=$_POST['email']?>" maxlength="40" id="text_input"/><br>
 		<br>
@@ -111,7 +104,7 @@ if ($_SESSION['admin']['rights'])
 		<br><br>
 		<input type="checkbox" name="is_main"> Главный администратор</input>
 		<br><br>
-		<input type="submit" value="Зарегистрировать" name="admin-reg-button" id="button" class="normal_button">
+		<input type="submit" value="Добавить" name="admin-reg-button" id="button" class="normal_button">
 	</form>
 	<?
 }
