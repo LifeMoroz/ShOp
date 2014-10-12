@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1
--- Время создания: Окт 02 2014 г., 22:41
+-- Время создания: Окт 08 2014 г., 02:48
 -- Версия сервера: 5.5.25
 -- Версия PHP: 5.2.12
 
@@ -57,6 +57,7 @@ CREATE TABLE IF NOT EXISTS `articles` (
   `text` text NOT NULL,
   `date` int(11) NOT NULL,
   `popularity` int(11) NOT NULL DEFAULT '0',
+  `on_main` int(11) NOT NULL DEFAULT '0',
   `views_count` int(11) NOT NULL DEFAULT '0',
   `description` text NOT NULL,
   `keywords` text NOT NULL,
@@ -67,8 +68,8 @@ CREATE TABLE IF NOT EXISTS `articles` (
 -- Дамп данных таблицы `articles`
 --
 
-INSERT INTO `articles` (`id`, `writer_id`, `title`, `img`, `text`, `date`, `popularity`, `views_count`, `description`, `keywords`) VALUES
-(1, 1, 'Правила чего-то там', 'no_image.jpg', '', 1163318400, 1, 0, '', '');
+INSERT INTO `articles` (`id`, `writer_id`, `title`, `img`, `text`, `date`, `popularity`, `on_main`, `views_count`, `description`, `keywords`) VALUES
+(1, 1, 'Правила чего-то там', '1412758745.jpg', '\r\n\r\n', 1163361600, 0, 1, 1, '', '');
 
 -- --------------------------------------------------------
 
@@ -146,21 +147,14 @@ INSERT INTO `comments` (`id`, `author_info`, `article_id`, `good_id`, `text`, `d
 
 CREATE TABLE IF NOT EXISTS `feedback_messages` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NOT NULL,
-  `topic` varchar(200) NOT NULL,
+  `author_name` varchar(200) NOT NULL,
+  `author_data` varchar(200) NOT NULL,
+  `type` varchar(200) NOT NULL,
   `text` text NOT NULL,
-  `date` date NOT NULL,
+  `date` int(11) NOT NULL,
   `comments` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
-
---
--- Дамп данных таблицы `feedback_messages`
---
-
-INSERT INTO `feedback_messages` (`id`, `user_id`, `topic`, `text`, `date`, `comments`) VALUES
-(1, 1, 'test1', 'привет мир 1', '0000-00-00', 'первый коммент'),
-(2, 1, 'test2', 'Привет мир 2', '0000-00-00', 'второй коммент');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -188,8 +182,7 @@ CREATE TABLE IF NOT EXISTS `goods` (
 INSERT INTO `goods` (`id`, `category_id`, `title`, `info`, `img`, `cost`, `popularity`, `description`, `keywords`) VALUES
 (6, 24, 'Щётка 1', '', 'no_image.jpg', '1000', 0, '', ''),
 (7, 24, 'Щётка 2', '', 'no_image.jpg', '100', 0, '', ''),
-(8, 24, 'Щётка 3', '', 'no_image.jpg', '10000', 0, '', ''),
-(10, 10, 'sdddd', '', 'no_image.jpg', '', 0, '', '');
+(8, 24, 'Щётка 3', '', 'no_image.jpg', '10000', 0, '', '');
 
 -- --------------------------------------------------------
 
@@ -201,7 +194,7 @@ CREATE TABLE IF NOT EXISTS `orders` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
   `data` text NOT NULL,
-  `date` date NOT NULL,
+  `date` int(11) NOT NULL,
   `comments` text NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
@@ -211,7 +204,7 @@ CREATE TABLE IF NOT EXISTS `orders` (
 --
 
 INSERT INTO `orders` (`id`, `user_id`, `data`, `date`, `comments`) VALUES
-(1, 1, '6<$#$>Щётка 1<$#$>1000<$#$>2<$###$>7<$#$>Щётка 2<$#$>100<$#$>8<$###$>8<$#$>Щётка 3<$#$>10000<$#$>2', '2014-09-28', 'sdsdsdsd');
+(1, 1, '6<$#$>Щётка 1<$#$>1000<$#$>2<$###$>7<$#$>Щётка 2<$#$>100<$#$>8<$###$>8<$#$>Щётка 3<$#$>10000<$#$>2', 2014, 'sdsdsdsd');
 
 -- --------------------------------------------------------
 
@@ -220,12 +213,30 @@ INSERT INTO `orders` (`id`, `user_id`, `data`, `date`, `comments`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `sliders` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `slider_id` int(11) NOT NULL,
   `tab_index` int(11) NOT NULL,
   `img` varchar(200) NOT NULL DEFAULT 'no_image.jpg',
   `text` text NOT NULL,
-  `link` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `link` varchar(200) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
+
+--
+-- Дамп данных таблицы `sliders`
+--
+
+INSERT INTO `sliders` (`id`, `slider_id`, `tab_index`, `img`, `text`, `link`) VALUES
+(1, 1, 1, 'no_image.jpg', '', ''),
+(2, 1, 3, 'no_image.jpg', '', ''),
+(3, 1, 2, 'no_image.jpg', '', ''),
+(4, 1, 4, 'no_image.jpg', '', ''),
+(5, 1, 5, 'no_image.jpg', '', ''),
+(6, 2, 0, 'no_image.jpg', '', ''),
+(7, 2, 0, 'no_image.jpg', '', ''),
+(8, 2, 0, 'no_image.jpg', '', ''),
+(9, 2, 0, 'no_image.jpg', '', ''),
+(10, 2, 0, 'no_image.jpg', '', '');
 
 -- --------------------------------------------------------
 
@@ -240,7 +251,7 @@ CREATE TABLE IF NOT EXISTS `texts` (
   `description` text NOT NULL,
   `keywords` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
 -- Дамп данных таблицы `texts`
@@ -249,7 +260,9 @@ CREATE TABLE IF NOT EXISTS `texts` (
 INSERT INTO `texts` (`id`, `title`, `text`, `description`, `keywords`) VALUES
 (1, 'О нас', '', '', ''),
 (2, 'Контакты', '', '', ''),
-(3, 'Оформление заказа и доставка', '', '', '');
+(3, 'Оформление заказа и доставка', 'Наша доставка доставляет лучше других доставок', '', ''),
+(4, 'site_name', 'Open Smile', '', ''),
+(5, 'site_phone', '89261234567', '', '');
 
 -- --------------------------------------------------------
 
@@ -292,7 +305,7 @@ CREATE TABLE IF NOT EXISTS `writers` (
 --
 
 INSERT INTO `writers` (`id`, `name`, `link`) VALUES
-(1, 'Иванов Иван Иванович2', 'http://ya.ru'),
+(1, 'Иванов Иван Иванович23', 'http://ya.ru'),
 (3, 'Петр Петрович', 'http://google.com');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
