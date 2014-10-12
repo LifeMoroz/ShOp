@@ -52,47 +52,11 @@
         <tr>
             <td>123456</td>
             <td><img src="img/shop_cart.png"> </td>
-            <td class="name">Зубная щетка ололо</td>
+            <td class="name" data-target="#<?$good['id']?>">Зубная щетка ололо</td>
             <td>4000</td>
-            <td><textarea></textarea></td>
-            <td>Всего, руб</td>
-            <td>x</td>
-        </tr>
-        <tr>
-            <td>Код</td>
-            <td>Фото</td>
-            <td>Наименование</td>
-            <td>Цена, руб</td>
-            <td>Количество</td>
-            <td>Всего, руб</td>
-            <td>x</td>
-        </tr>
-        <tr>
-            <td>Код</td>
-            <td>Фото</td>
-            <td>Наименование</td>
-            <td>Цена, руб</td>
-            <td>Количество</td>
-            <td>Всего, руб</td>
-            <td>x</td>
-        </tr>
-        <tr>
-            <td>Код</td>
-            <td>Фото</td>
-            <td>Наименование</td>
-            <td>Цена, руб</td>
-            <td>Количество</td>
-            <td>Всего, руб</td>
-            <td>x</td>
-        </tr>
-        <tr>
-            <td>Код</td>
-            <td>Фото</td>
-            <td>Наименование</td>
-            <td>Цена, руб</td>
-            <td>Количество</td>
-            <td>Всего, руб</td>
-            <td>x</td>
+            <td><div class="input"><div class="minus">-</div><input value="1"><div class="plus">+</div></div></td>
+            <td>8000</td>
+            <td><a class="delete">+</a></td>
         </tr>
         </tbody>
     </table>
@@ -101,6 +65,32 @@
     Смайл, а так же внешней курьерской службой. Доставка заказа по Москве (в пределах МКАД)
     осуществляется бесплатно . Доставка осуществляется с понедельника по пятницу с 10.00 до 21.00, в
     субботу с 10:00 до 18:00.</p>
+    <div class="modal fade" id="<?$good['id']?>" tabindex="-1" role="dialog" aria-labelledby="title-<?$good['id']?>"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header modal-goods">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="title-<?$good['id']?>"><?$good['title']?></h4>
+            </div>
+            <div class="modal-body">
+                <div class="modal_good_wrapper">
+                    <div class="modal_good_img_wrapper">
+                        <img class="modal_good_img_main" src="<?$good['img']?>"/>
+                    </div>
+                    <div class="modal_good_main_description">Описание: <p> <?$good['description']?>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <span class="good_price"><?echo $good['price']?> р.</span>
+                    <button type="button" class="red_button_modal" data-dismiss="modal">Close</button>
+                    <button type="button" class="green_button_modal">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </div>
 </body>
 </html>
