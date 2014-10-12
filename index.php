@@ -26,7 +26,7 @@ else if ($_POST['add-about-us-message-button'])
 $slides = get_slider_data(1);
 
 ?>
-<!DOCTYPE html PUBLIC  "-//W3C//DTD XHTML 1.0 Strict//EN" "www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
@@ -158,7 +158,7 @@ print_r($_POST);
 						<img class="good_img" src="<?=$good['img']?>">
 					</div>
 					
-					<a class="good_title" data-toggle="modal" data-target="#myModal"><?=$good['title']?>/a>
+					<a class="good_title" data-toggle="modal" data-target="#myModal"><?=$good['title']?></a>
 					<br>
 					<span class="good_price" data-toggle="modal" data-target="#myModal"><?=$good['cost']?> р.</span>
 					
@@ -170,7 +170,8 @@ print_r($_POST);
 						<div class="modal-content">
 							<div class="modal-header modal-goods">
 								
-								<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span>
+								<button type="button" class="close" data-dismiss="modal">
+                                    <span aria-hidden="true">&times;</span>
 									<span class="sr-only">Close</span>
 								</button>
 								
@@ -259,8 +260,9 @@ print_r($_POST);
     <div class="modal-dialog">
         <div class="modal-content modal-delivery">
             <div class="modal-header modal-delivery">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
-                        class="sr-only">Close</span></button>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span></button>
                 <h4 class="modal-title modal-delivery_title"><?=$data['title']?></h4>
             </div>
             <div class="modal-body modal-delivery">
@@ -278,8 +280,9 @@ print_r($_POST);
     <div class="modal-dialog">
         <div class="modal-content modal-recall">
             <div class="modal-header modal-delivery">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span>
-                        class="sr-only">Close</span></button>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span></button>
                 <h4 class="modal-title modal-recall_title">ПЕРЕЗВОНИТЕ МНЕ</h4>
             </div>
             <div class="modal-body modal-delivery">
