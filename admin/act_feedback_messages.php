@@ -38,6 +38,7 @@ if ($mode == 'none')
 		$messages_title = '<h3>Список писем категории "О нас":</h3><br>';
 	}
 	
+	echo $messages_title;
 	
 	if (!$messages)
 		echo '<h3>Нет писем!</h3>';

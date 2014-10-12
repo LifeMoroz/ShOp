@@ -41,6 +41,49 @@ span
     font-size: 85%;
 }
 /*********************************************************/
+#auth_button
+{
+	width: 204px;
+	height: 28px;
+	font-size: 14px;
+
+	margin-top: 6px;
+	
+	color: rgb(80,80,80);
+	border: 1px solid gray;
+	background-color: rgba(200,200,200, 0.3);
+}
+#auth_button:hover
+{
+	color: orange;
+	background-color: rgb(255,255,255);
+	border: 1px solid orange;
+}
+#auth_button:focus
+{
+	color: orange;
+	background-color: rgb(255,255,255);
+	border: 1px solid orange;
+}
+
+#auth_input
+{
+	width: 200px;
+	height: 24px;
+	
+	margin-top: 2px;
+	text-align: center;
+	border: 1px solid rgb(150,150,150);
+}
+#auth_input:hover
+{
+	border-color: orange;
+}
+#auth_input:focus
+{
+	border-color: orange;
+}
+/*********************************************************/
 #button
 {
 	color: rgb(80,80,80);
@@ -79,7 +122,7 @@ span
     color: red;
 }
 
-#deleting_form_cancel_button
+#modal_form_cancel_button
 {
     color: rgb(80,80,80);
     border-radius: 5px;
@@ -90,20 +133,20 @@ span
     height: 30px;
     font-size: 14px;
 }
-#deleting_form_cancel_button:hover
+#modal_form_cancel_button:hover
 {
     color: orange;
     background-color: rgb(255,255,255);
     border: 1px solid orange;
 }
-#deleting_form_cancel_button:focus
+#modal_form_cancel_button:focus
 {
     color: orange;
     background-color: rgb(255,255,255);
     border: 1px solid orange;
 }
 
-#deleting_form_accept_button
+#modal_form_accept_button
 {
     color: red;
     border: 1px solid gray;
@@ -114,14 +157,14 @@ span
     height: 30px;
     font-size: 14px;
 }
-#deleting_form_accept_button:hover
+#modal_form_accept_button:hover
 {
     color: red;
     box-shadow: 0 0 10px #f00;
     background-color: rgba(255, 0, 0, 0.1);
     border: 1px solid red;
 }
-#deleting_form_accept_button:focus
+#modal_form_accept_button:focus
 {
     color: red;
     box-shadow: 0 0 10px #f00;

@@ -47,7 +47,7 @@ if (!is_admin_logged_in())
 	}
 	else if (strstr($act, 'fbm_'))
 	{
-		$messages_type= $act[4]; 
+		$messages_type = $act[4]; 
 		
 		if ($messages_type != 1 and $messages_type != 2)
 			go_to_error404_page();
@@ -55,26 +55,34 @@ if (!is_admin_logged_in())
 		$act = 'act_feedback_messages';
 	}
 	else $act = 'act_'.$act;
-	// конец костыля =)
+	//	конец костыля =)
+	
+	// еще один костыль: связан с тем, что "супер текстареа" требует определенную версию jquery
+	$include_editor = '
+		<script type="text/javascript" src="include/js/jquery-1.6.4.min.js"></script> 
+		<script type="text/javascript" src="editor/editor.js"></script>
+		<link rel="stylesheet" href="editor/css/editor.css" type="text/css"/>
+		';
+		
+	$include_bootstrap = '
+		<script type="text/javascript" src="./include/js/jquery-2.1.1.js"></script>
 
+        <link rel="stylesheet" type="text/css" href="include/bootstrap/css/bootstrap.css"/>
+        <script type="text/javascript" src="include/bootstrap/js/bootstrap.js"></script>
+		';
+	
+	if ($act == 'act_texts' or ($act == 'act_articles' and isset($_GET['id'])))
+		$include = $include_editor;
+	else $include = $include_bootstrap;
+	//	конец костыля
+	
 	?>
 	<!DOCTYPE html PUBLIC  "-//W3C//DTD XHTML 1.0 Strict//EN" "www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 	<html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta charset="utf-8">
-
         <link type="text/css" rel="stylesheet" href="style/style.css"/>
 
-        <!-- ============================================================================= -->
-        <script type="text/javascript" src="./include/js/jquery-2.1.1.js"></script>
-
-        <link rel=stylesheet type="text/css" href="include/bootstrap/css/bootstrap.css"/>
-        <script type="text/javascript" src="include/bootstrap/js/bootstrap.js"></script>
-        <!-- ============================================================================= -->
-
-		<script type="text/javascript" src="include/js/jquery-1.6.4.min.js"></script> 
-		<script type="text/javascript" src="editor/editor.js"></script>
-		<link rel="stylesheet" href="editor/css/editor.css" type="text/css"/>
+		<?=$include?>
 
 		<title><?=$act_array[$act_index]['full']?></title>
 	</head>
@@ -82,18 +90,17 @@ if (!is_admin_logged_in())
 	<body>
 		<br>
 		<div style="position: absolute; left: 40px;">
-			Добро пожаловать в панель администратора!<br>
+			Добро пожаловать в панель администратора, <b><?=$_SESSION['admin']['name']?></b>!<br>
 			Ваш e-mail: <b><?=$_SESSION['admin']['email']?></b>
 			<br>
-			<b><a href="<?=URI_PATH?>" target="blank">Перейти на сайт</a></b>
-			<br>
+			<div style="margin-top: 5px; margin-bottom: 9px"><b><a href="<?=URI_PATH?>" target="blank">Перейти на сайт</a></b></div>
 			<form method="post" action="">
 				<input type="submit" value="Выйти" name="admin-log-out-button" id="button" class="mini_button">				
 			</form>
 		</div>
 		
 		
-		<br><br><br><br><br><br>
+		<br><br><br><br><br><br><br>
 		<table width="100%"><tr valign="top">
 			<td width="40"></td>
 			<td width="200">
