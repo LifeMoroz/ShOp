@@ -18,6 +18,15 @@ include_once('admin/functions/work_admin_functions.php');
 	
 </head>
 <body>
-	<? show_message_admin('dqfwfqwfqw'); ?>
+	<?
+	$a['fff'] = 2;
+	$a[1] = 3;
+	$a[23] = 4;
+	
+	foreach($a as $key => $value)
+	{
+		echo $key.' '.$value.'<br>';
+	}
+	?>
 </body>
 </html>
