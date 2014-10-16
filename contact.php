@@ -46,10 +46,10 @@ $articles = get_articles_list();
 			</a>
 		</div>
 		<div class="header_menu">
-			<a class="header_menu_link active" href="index.php">Главная</a>
+			<a class="header_menu_link" href="index.php">Главная</a>
 			<a class="header_menu_link" href="goods.php">Товары</a>
 			<a class="header_menu_link" href="blog.php">Блог</a>
-			<a class="header_menu_link" href="contact.php">Контакты</a>
+			<a class="header_menu_link active" href="contact.php">Контакты</a>
 
 			<form class="header_menu_search">
 				<input class="header_menu_search_input">

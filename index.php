@@ -228,6 +228,7 @@ $slides = get_slider_data(1);
 						<div class="post_preview_text">
 							<?=$article['short_text']?>
 						</div>
+						<div>
 						<div class="post_preview_watches">
 							Просмотров: <?=$article['views_count']?>
 						</div>
@@ -238,6 +239,7 @@ $slides = get_slider_data(1);
 							Автор: <p class="post_preview_author"><?=$article['author']?></p>
 						</div>
 						<a href='<?=$url?>' class="post_preview_button_read">Читать</a>
+						</div>
 					</div>
 					<?php 
 				} 

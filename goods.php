@@ -58,8 +58,8 @@ $goods = get_goods_list_by_category_id($category_id);
 			</a>
 		</div>
 		<div class="header_menu">
-			<a class="header_menu_link active" href="index.php">Главная</a>
-			<a class="header_menu_link" href="goods.php">Товары</a>
+			<a class="header_menu_link" href="index.php">Главная</a>
+			<a class="header_menu_link active" href="goods.php">Товары</a>
 			<a class="header_menu_link" href="blog.php">Блог</a>
 			<a class="header_menu_link" href="contact.php">Контакты</a>
 
@@ -79,8 +79,32 @@ $goods = get_goods_list_by_category_id($category_id);
 			?>
 			<div class="menu_wrapper">
 				<div class="panel-group" id="accordion">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h4 class="panel-title">
+								<img class="panel_heading_img" src="./<?=$main_categories[0]['img']?>">
+								<a data-toggle="collapse" data-parent="#accordion" href="#mcat-<?=$main_categories[0]['id']?>">
+										<?=$main_categories[0]['title']?>
+								</a>
+							</h4>
+						</div>
+						<div id="mcat-<?=$main_categories[0]['id']?>" class="panel-collapse collapse in">
+							<?php
+							$subcategories = get_categories_list_by_parent_id($main_categories[0]['id']);
+							
+							foreach ($subcategories as $s) 
+							{ 
+								?>
+								<div class="panel-body">
+									<a class="panel_menu_link" href="goods.php?id=<?=$s['id']?>"><?=$s['title']?></a>
+								</div>
+								<?php
+							} 
+							?>
+						</div>
+					</div>
 					<?php
-					for ($i = 0; $i < count($main_categories); $i++) 
+					for ($i = 1; $i < count($main_categories); $i++) 
 					{ 
 						?>
 						<div class="panel panel-default">
@@ -92,7 +116,7 @@ $goods = get_goods_list_by_category_id($category_id);
 									</a>
 								</h4>
 							</div>
-							<div id="mcat-<?=$main_categories[$i]['id']?>" class="panel-collapse collapse in">
+							<div id="mcat-<?=$main_categories[$i]['id']?>" class="panel-collapse collapse">
 								<?php
 								$subcategories = get_categories_list_by_parent_id($main_categories[$i]['id']);
 								
@@ -126,7 +150,7 @@ $goods = get_goods_list_by_category_id($category_id);
 						?>
 					</ol>
 					<!-- Wrapper for slides -->
-					<div class="carousel-inner">
+					<div class="carousel-inner" style="height: 350px">
 						<div class="item active">
 							<img src="<?=$slides[0]['img']?>" alt="" style="width: 100%; height: 100%;">
 							<div class="carousel-caption"></div>

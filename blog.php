@@ -31,7 +31,7 @@ $articles = get_articles_list();
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
     <script type="text/javascript" src="js/bootstrap.js"></script>
 </head>
-<body style="width: 1260px">
+<body>
 	<div class="header">
 		<div class="header_links_wrapper">
 			<a class="header_link header_link_logo">
@@ -46,9 +46,9 @@ $articles = get_articles_list();
 			</a>
 		</div>
 		<div class="header_menu">
-			<a class="header_menu_link active" href="index.php">Главная</a>
+			<a class="header_menu_link" href="index.php">Главная</a>
 			<a class="header_menu_link" href="goods.php">Товары</a>
-			<a class="header_menu_link" href="blog.php">Блог</a>
+			<a class="header_menu_link active" href="blog.php">Блог</a>
 			<a class="header_menu_link" href="contact.php">Контакты</a>
 
 			<form class="header_menu_search">
@@ -85,16 +85,18 @@ $articles = get_articles_list();
 					<div class="post_preview_text">
 						<?=$article['description']?>
 					</div>
-					<div class="post_preview_watches">
-						Просмотров: <?=$article['views_count']?>
+					<div>
+						<div class="post_preview_watches">
+							Просмотров: <?=$article['views_count']?>
+						</div>
+						<div class="post_preview_comments_counter">
+							Комментариев: <?=$article['comments_count']?>
+						</div>
+						<div class="post_preview_author_wrapper">
+							Автор: <p class="post_preview_author"><?=$article['author']?></p>
+						</div>
+						<a href='<?=$url?>' class="post_preview_button_read">Читать</a>
 					</div>
-					<div class="post_preview_comments_counter">
-						Комментариев: <?=$article['comments_count']?>
-					</div>
-					<div class="post_preview_author_wrapper">
-						Автор: <p class="post_preview_author"><?=$article['author']?></p>
-					</div>
-					<a href='<?=$url?>' class="post_preview_button_read">Читать</a>
 				</div>
 				<?php
 			} 

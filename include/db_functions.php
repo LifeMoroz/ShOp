@@ -2,9 +2,9 @@
 function db_connect()
 {
     $host = 'localhost';
-    $db_name = 'shop';
-    $username = 'shop';
-    $password = '123';
+    $db_name = '???';
+    $username = '???';
+    $password = '???';
 
     $db = mysql_connect($host, $username, $password);
 

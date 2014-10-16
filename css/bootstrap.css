@@ -294,6 +294,8 @@ hr {
 }
 .panel_heading_img {
     display: inline-block;
+    height: 1.2em;
+    margin-right: 2px;
     vertical-align: top;
 }
 .panel-heading > .dropdown .dropdown-toggle {
@@ -477,7 +479,7 @@ hr {
     background-color: #076f0f;
     font-size: 20px;
     font-family: "Segoe UI", serif;
-    line-height: 1.2;
+    line-height: 1em;
     text-align: left;
 }
 .panel-group .panel-footer {

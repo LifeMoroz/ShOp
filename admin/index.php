@@ -81,7 +81,7 @@ if (!is_admin_logged_in())
 	<html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <link type="text/css" rel="stylesheet" href="style/style.css"/>
-
+ 	<meta charset="utf-8">
 		<?=$include?>
 
 		<title><?=$act_array[$act_index]['full']?></title>
